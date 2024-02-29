@@ -1,10 +1,10 @@
-package controller;
+package ru.innopolis.attestation03.controller;
 
-import model.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import service.PizzaService;
+import ru.innopolis.attestation03.model.Pizza;
+import ru.innopolis.attestation03.service.PizzaService;
 
 import java.util.List;
 
@@ -17,6 +17,11 @@ public class PizzaController {
     @Autowired
     public PizzaController(PizzaService pizzaService) {
         this.pizzaService = pizzaService;
+    }
+
+    @GetMapping("/")
+    public String home() {
+        return "Welcome to the Pizzeria API!";
     }
 
     @GetMapping

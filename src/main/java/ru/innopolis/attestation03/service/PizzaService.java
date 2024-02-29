@@ -1,9 +1,9 @@
-package service;
+package ru.innopolis.attestation03.service;
 
-import model.Pizza;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.PizzaRepository;
+import ru.innopolis.attestation03.model.Pizza;
+import ru.innopolis.attestation03.repository.PizzaRepository;
 
 import java.util.List;
 import java.util.Optional;
