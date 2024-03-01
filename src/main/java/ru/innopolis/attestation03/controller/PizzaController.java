@@ -3,6 +3,7 @@ package ru.innopolis.attestation03.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import ru.innopolis.attestation03.dto.PizzaDTO;
 import ru.innopolis.attestation03.model.Pizza;
 import ru.innopolis.attestation03.service.PizzaService;
 
@@ -25,31 +26,33 @@ public class PizzaController {
     }
 
     @GetMapping
-    public List<Pizza> getAllPizzas() {
-        return pizzaService.getAllPizzas();
+    public ResponseEntity<List<PizzaDTO>> getAllPizzas() {
+        List<PizzaDTO> pizzas = pizzaService.getAllPizzas();
+        return ResponseEntity.ok(pizzas);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Pizza> getPizzaById(@PathVariable Long id) {
+    public ResponseEntity<PizzaDTO> getPizzaById(@PathVariable Long id) {
         return pizzaService.getPizzaById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Pizza createPizza(@RequestBody Pizza pizza) {
-        return pizzaService.savePizza(pizza);
+    public ResponseEntity<PizzaDTO> savePizza(@RequestBody PizzaDTO pizzaDTO) {
+        PizzaDTO savedPizza = pizzaService.savePizza(pizzaDTO);
+        return ResponseEntity.ok(savedPizza);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Pizza> updatePizza(@PathVariable Long id, @RequestBody Pizza pizzaDetails) {
+    public ResponseEntity<PizzaDTO> updatePizza(@PathVariable Long id, @RequestBody PizzaDTO pizzaDetailsDTO) {
         return pizzaService.getPizzaById(id)
-                .map(pizza -> {
-                    pizza.setName(pizzaDetails.getName());
-                    pizza.setDescription(pizzaDetails.getDescription());
-                    pizza.setPrice(pizzaDetails.getPrice());
-                    Pizza updatedPizza = pizzaService.savePizza(pizza);
-                    return ResponseEntity.ok(updatedPizza);
+                .map(pizzaDTO -> {
+                    pizzaDTO.setName(pizzaDetailsDTO.getName());
+                    pizzaDTO.setDescription(pizzaDetailsDTO.getDescription());
+                    pizzaDTO.setPrice(pizzaDetailsDTO.getPrice());
+                    PizzaDTO updatedPizzaDTO = pizzaService.savePizza(pizzaDTO);
+                    return ResponseEntity.ok(updatedPizzaDTO);
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
