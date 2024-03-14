@@ -1,17 +1,16 @@
-package service;
+package ru.innopolis.attestation03.service;
 
 
-import model.Ingredient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.IngredientRepository;
+import ru.innopolis.attestation03.model.Ingredient;
+import ru.innopolis.attestation03.repository.IngredientRepository;
 
 import java.util.List;
 import java.util.Optional;
 
 @Service
 public class IngredientService {
-
     private final IngredientRepository ingredientRepository;
 
     @Autowired

@@ -1,10 +1,7 @@
-package repository;
+package ru.innopolis.attestation03.repository;
 
-import model.Ingredient;
-import model.Order;
-import model.Pizza;
-import model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import ru.innopolis.attestation03.model.Pizza;
 
 public interface PizzaRepository extends JpaRepository<Pizza, Long> {
 

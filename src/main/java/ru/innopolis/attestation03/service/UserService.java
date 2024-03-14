@@ -1,9 +1,9 @@
-package service;
+package ru.innopolis.attestation03.service;
 
-import model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
+import ru.innopolis.attestation03.model.User;
+import ru.innopolis.attestation03.repository.UserRepository;
 
 import java.util.List;
 import java.util.Optional;
