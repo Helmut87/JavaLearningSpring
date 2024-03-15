@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <!-- Ссылка на ваш CSS файл для стилизации страницы ошибки -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+</head>
+<body>
+<div class="error-container">
+    <h1>Oops! Something went wrong...</h1>
+    <div>
+        <p>Sorry, but the page you were trying to view does not exist.</p>
+        <p>It looks like this was the result of either:</p>
+        <ul>
+            <li>a mistyped address</li>
+            <li>an out-of-date link</li>
+        </ul>
+    </div>
+    <div>
+        <p>Here's a little map that might help you get back on track:</p>
+        <ul>
+            <li><a th:href="@{/login}">Login</a></li>
+            <li><a th:href="@{/contact}">Contact Us</a></li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>
