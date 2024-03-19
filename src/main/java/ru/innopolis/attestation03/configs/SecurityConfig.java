@@ -10,7 +10,13 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @EnableWebSecurity
 public class SecurityConfig {
-    private static final String[] PUBLIC_MATCHERS = {"/swagger-ui/**", "/v3/api-docs/**", "/js/**", "/css/**"};
+    private static final String[] PUBLIC_MATCHERS = {
+            "/swagger-ui.html",
+            "/swagger-ui/**",
+            "/v3/api-docs/**",
+            "/js/**",
+            "/css/**"
+    };
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
