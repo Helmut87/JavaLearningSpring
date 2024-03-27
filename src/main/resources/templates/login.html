@@ -1,13 +1,81 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Login</title>
+    <title>Пожалуйста, войдите в систему</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .login-wrapper {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            box-sizing: border-box; /* Добавлено для лучшего размера полей */
+        }
+
+        input[type=submit] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #0056b3;
+        }
+
+        .alert {
+            color: red;
+            margin-bottom: 20px;
+        }
+    </style>
 </head>
 <body>
-<form th:action="@{/login}" method="post">
-    <div><label> User Name : <input type="text" name="username"/> </label></div>
-    <div><label> Password: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Sign In"/></div>
-</form>
+<div class="login-wrapper">
+    <h1>Пожалуйста, войдите в систему</h1>
+    <div class="alert" th:if="${param.error}">
+        Неверное имя пользователя или пароль.
+    </div>
+    <div class="alert" th:if="${param.logout}">
+        Вы вышли из системы.
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div>
+            <input type="text" name="username" placeholder="Имя пользователя" required/>
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="Пароль" required/>
+        </div>
+        <input type="submit" value="Войти"/>
+    </form>
+</div>
 </body>
 </html>

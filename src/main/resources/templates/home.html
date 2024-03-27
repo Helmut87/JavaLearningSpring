@@ -3,9 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: inline-block;
+        }
+
+        input[type=submit] {
+            padding: 10px 20px;
+            background-color: #f44336; /* Red color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type=submit]:hover {
+            background-color: #c53727; /* Darker red */
+        }
+    </style>
 </head>
 <body>
 <h1>Добро пожаловать на страницу пиццерии!</h1>
 <p>Это главная страница, которую увидит пользователь после успешной авторизации.</p>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Выйти"/>
+</form>
+
 </body>
 </html>

@@ -2,26 +2,57 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Error</title>
-    <!-- Ссылка на ваш CSS файл для стилизации страницы ошибки -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <title>Ошибка</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 50px;
+        }
+        .error-container {
+            background-color: white;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+        }
+        h1 {
+            color: #D32F2F; /* Темно-красный цвет для ошибок */
+        }
+        ul {
+            list-style: none; /* Убирает маркеры списка */
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
 <div class="error-container">
-    <h1>Oops! Something went wrong...</h1>
+    <h1>Упс! Что-то пошло не так...</h1>
     <div>
-        <p>Sorry, but the page you were trying to view does not exist.</p>
-        <p>It looks like this was the result of either:</p>
+        <p>Извините, но страница, которую вы пытались просмотреть, не существует.</p>
+        <p>Похоже, это было результатом либо:</p>
         <ul>
-            <li>a mistyped address</li>
-            <li>an out-of-date link</li>
+            <li>неправильно набранного адреса</li>
+            <li>устаревшей ссылки</li>
         </ul>
     </div>
     <div>
-        <p>Here's a little map that might help you get back on track:</p>
+        <p>Вот небольшая карта, которая может помочь вам вернуться на правильный путь:</p>
         <ul>
-            <li><a th:href="@{/login}">Login</a></li>
-            <li><a th:href="@{/contact}">Contact Us</a></li>
+            <li><a th:href="@{/login}">Войти</a></li>
+            <li><a th:href="@{/contact}">Связаться с нами</a></li>
         </ul>
     </div>
 </div>
